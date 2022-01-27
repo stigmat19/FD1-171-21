@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="header_top">
+    <div class="container">
+        <ul>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">О магазине</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div>
+            <div class="auth">
+                <span>Вход</span>
+                <span>Регистрация</span>
+            </div>
+            <button>
+                <img src="img/basket.svg" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="container">
+        <div class="search_wrap">
+            <img src="img/logo.svg" alt="">
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Поиск" />
+                </label>
+
+                <ul>
+                    <li><a href="tel:+375297654565">+375 (29) 765 45 65</a></li>
+                    <li>Пн - пт с 9:00 до 19:00</li>
+                    <li>Сб - вс выходной</li>
+                </ul>
+            </div>
+        </div>
+        <ul>
+            <li><a href="#">Чай</a></li>
+            <li><a href="#">Кофе</a></li>
+            <li><a href="#">Сладенькое</a></li>
+            <li><a href="#">Наборы</a></li>
+            <li><a href="#">Акции</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="slider">
+    <div class="container">
+        <h1>Шу пуэр</h1>
+        <p>Давно выяснено, что при оценке дизайна и <br> композиции читаемый текст мешает <br> сосредоточиться.</p>
+        <button>Перейти в раздел</button>
+    </div>
+</div>
+
+<div class="catalog">
+    <div class="container">
+        <h2>Каталог продукции</h2>
+
+        <div class="catalog_top">
+            <div>
+                <h3>Чай</h3>
+            </div>
+            <div>
+                <h3>Кофе</h3>
+            </div>
+        </div>
+        <div class="catalog_bottom">
+            <div>
+                <h3>Сладости</h3>
+            </div>
+            <div>
+                <h3>Атрибуты</h3>
+            </div>
+            <div>
+                <h3>Акции</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="admin-panel">
+    <input type="text" id="imgUrl"> img <br>
+    <input type="text" id="title"> title <br>
+    <input type="text" id="titleSmall"> title small <br>
+    <input type="text" id="descr"> descr<br>
+    <input type="text" id="weight"> weight <br>
+    <input type="text" id="price"> price<br>
+    <input type="number" id="rating" > rating <br>
+    <button onclick="getData()">add</button>
+</div>
+
+<div class="best-products">
+    <div class="container">
+        <h2>Лучшие товары</h2>
+        <div id="card-wrap"></div>
+    </div>
+</div>
+<script>
+    var imgUrlInput = document.getElementById("imgUrl");
+    var titleInput = document.getElementById("title");
+    var titleSmallInput = document.getElementById("titleSmall");
+    var descrInput = document.getElementById("descr");
+    var weightInput = document.getElementById("weight");
+    var priceInput = document.getElementById("price");
+    var ratingInput = document.getElementById("rating");
+	var cardWrap = document.getElementById("card-wrap");
+	var card = [];
+
+	//function
+    function getData (){
+	    var obj = {};
+	    obj.rating = ratingInput.value;
+	    obj.imgUrl = imgUrlInput.value;
+	    obj.title = titleInput.value;
+	    obj.titleSmall = titleSmallInput.value;
+	    obj.descr = descrInput.value;
+	    obj.weight = weightInput.value;
+	    obj.price = priceInput.value;
+	    card.push(obj);
+	    render();
+    }
+
+	function render (){
+			var str = "";
+			for (let i = 0; i < card.length; i++) {
+				var item = card[i];
+				str += `<div class="card">
+                    <div class="card-top">
+                        <span>${item.rating}</span>
+                        <img src="img/heart.svg" alt="">
+                    </div>
+                    <div>
+                        <img src="${item.imgUrl}" alt="">
+                    </div>
+                    <h4>${item.title}</h4>
+                    <h5>${item.titleSmall}</h5>
+                    <p class="descr">${item.descr}</p>
+                    <p class="price">${item.weight} / <span>${item.price}</span></p>
+                    <button>В корзину</button>
+                </div>`;
+			}
+			cardWrap.innerHTML = str;
+    }
+</script>
+
+</body>
+</html>

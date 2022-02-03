@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 10000px;
+            overflow-x: hidden;
+        }
+        div:not(#hide_button){
+            height: 500px;
+        }
+        #one{
+            background-color: red;
+            margin-top: 20.5px;
+        }
+        #two{
+            background-color: yellow;
+        }
+        #three{
+            background-color: blue;
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100% ;
+            transition: .5s;
+        }
+        li{
+            list-style-type: none;
+            border: 1px solid black;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #hide_button{
+            position: fixed;
+            border: 1px solid;
+            right: 0;
+            top: 0;
+            z-index: 9;
+            background: cyan;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media all and (max-width: 500px){
+            #hide_button{
+                display: block;
+            }
+            #close{
+                display: none;
+            }
+            ul{
+                flex-direction: column;
+                top: 20px;
+                transform: translate(100%);
+            }
+            li{
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="hide_button">
+    <span id="open">open</span>
+    <span id="close">close</span>
+</div>
+
+<ul id="menu">
+    <li><a href="#one" title="hello">one</a></li>
+    <li><a href="#two">two</a></li>
+    <li><a href="#three">three</a></li>
+</ul>
+
+
+<div id="one"></div>
+<div id="two"></div>
+<div id="three"></div>
+
+
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+<script>
+
+
+	$(document).ready(function (){
+		$('#menu').on('click', 'a', function (e){
+			e.preventDefault();
+			var id = $(this).attr('href');
+			var top = $(id).offset().top
+			$('html, body').animate({scrollTop: top}, 1000);
+        });
+
+		$('#open').click(function () {
+		    $('#menu').css('transform', 'translate(0)');
+			$(this).hide();
+			$('#close').show();
+        });
+
+		$('#close').click(function () {
+		    $('#menu').css('transform', 'translate(100%)');
+            $(this).hide();
+			$('#open').show();
+		});
+    })
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

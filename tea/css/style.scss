@@ -201,8 +201,6 @@ li{
 
 .slider{
   height: 516px;
-  background: url("../img/header_bg.jpeg") no-repeat center;
-  background-size: cover;
   padding-top: 137px;
   .container{
     padding-left: 270px;
@@ -223,6 +221,35 @@ li{
       @include btn(305px);
     }
   }
+
+  .carousel-item{
+    height: 500px;
+    background: no-repeat center;
+    background-size: cover;
+    padding-top: 115px;
+    &:first-child{
+      background-image: url("../img/tea1.jpeg");
+    }
+    &:nth-child(2){
+      background-image: url("../img/tea2.jpeg");
+    }
+    &:last-child{
+      background-image: url("../img/header_bg.jpeg");
+    }
+
+  }
+
+  .carousel-indicators [data-bs-target]{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $dots;
+
+    &.active{
+      background-color: $dots_active;
+    }
+  }
+
 }
 
 .catalog{

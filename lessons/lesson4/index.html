@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="css/all.css">
     <style>
         .stars{
             float: left;
@@ -35,6 +35,7 @@
 <body>
 
 <div>
+    <i class="fa-solid fa-align-justify"></i>
     <h1>h1</h1>
     <span>span1</span>
     <span>span2</span>
@@ -53,5 +54,13 @@
     <div class="star">5</div>
 </div>
 
+<script>
+    window.addEventListener('resize', () => {
+			console.log("-----1", this.innerWidth);
+			if(this.innerWidth > 1000){
+				el.style.display = 'none'
+            }
+    })
+</script>
 </body>
 </html>

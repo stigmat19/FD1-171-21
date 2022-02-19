@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            display: none;
+        }
+        label{
+            width: 14px;
+            height: 14px;
+            border: 1px solid #707070;
+            display: inline-block;
+            border-radius: 50%;
+            position: relative;
+        }
+        input:checked + label {
+            border: 1px solid #F2BF63;
+        }
+        input:checked + label:before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: #F2BF63;
+            position: absolute;
+            top: 5px;
+            left: 4.5px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<input type="radio" id="radio1" name="ttt">
+<label for="radio1"></label>
+<input type="radio" id="radio2" name="ttt">
+<label for="radio2"></label>
+<input type="radio" id="radio3" name="ttt">
+<label for="radio3"></label>
+<input type="radio" id="radio4" name="ttt">
+<label for="radio4"></label>
+<input type="radio" id="radio5" name="ttt">
+<label for="radio5"></label>
+
+
+
+
+
+
+</body>
+</html>

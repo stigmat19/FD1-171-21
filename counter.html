@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+
+
+
+<script>
+    var app = document.getElementById('app');
+    var items = [
+	    {
+	        count: 0
+        },
+	    {
+		    count: 0
+	    },
+	    {
+		    count: 0
+	    },
+    ];
+    var str = "";
+
+
+	for(var i=0; i<items.length; i++){
+		str += `
+                <button class="minus" data-id="${i}" onclick="minus(event)">-</button>
+                <p class="res" data-id="${i}">${items[i].count}</p>
+                <button class="plus" data-id="${i}" onclick="plus(event)">+</button>
+                <hr>
+		`
+    }
+
+	app.innerHTML = str;
+
+    var results = document.getElementsByClassName("res");
+
+
+    function minus (e){
+	    var id = e.currentTarget.dataset.id;
+		if(items[id].count <= 0 ){
+			return;
+        }
+        items[id].count--;
+		results[id].innerHTML = items[id].count
+    }
+
+    function plus(e){
+	    var id = e.currentTarget.dataset.id;
+	    items[id].count++;
+	    results[id].innerHTML = items[id].count
+    }
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

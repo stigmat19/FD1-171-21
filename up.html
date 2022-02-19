@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 500px;
+        }
+        div:nth-child(odd){
+            background-color: red;
+        }
+        span{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<span id="up">Up</span>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function (){
+	    $('#up').on('click', function (){
+		    $('html, body').animate({scrollTop: 0}, 1000);
+        })
+    })
+</script>
+
+</body>
+</html>

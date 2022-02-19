@@ -47,23 +47,4 @@ function render (){
 	}
 	cardWrap.innerHTML = str;
 
-
-
-	if(gender) {
-		if(age > 63){
-			pensiya
-		}
-		else{
-			ne pensiya
-		}
-	}
-	else{
-		if(age > 58){
-			pensiya
-		}
-		else{
-			ne pensiya
-		}
-	}
-
 }
